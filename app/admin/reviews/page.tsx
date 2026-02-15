@@ -51,7 +51,8 @@ export default function AdminReviews() {
     if (error) {
       console.error('Error fetching reviews:', error);
     } else {
-      setReviews(data || []);
+      // Type assertion to handle Supabase's typing quirk
+      setReviews((data as any) || []);
     }
     setLoading(false);
   };
@@ -235,7 +236,7 @@ export default function AdminReviews() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-4">
                     {/* Product Image */}
-                    <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                    <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                       {review.products.image_url ? (
                         <img
                           src={review.products.image_url}
@@ -271,7 +272,7 @@ export default function AdminReviews() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-2 flex-shrink-0">
+                  <div className="flex gap-2 shrink-0">
                     {review.status === 'pending' && (
                       <>
                         <button
