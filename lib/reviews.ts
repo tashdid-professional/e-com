@@ -17,7 +17,7 @@ export async function canUserReviewProduct(userId: string, productId: string): P
     .eq('order_items.product_id', productId)
     .or(`user_id.eq.${userId},customer_email.eq.${user.email}`);
 
-  return (deliveredOrders && deliveredOrders.length > 0);
+  return !!(deliveredOrders && deliveredOrders.length > 0);
 }
 
 export async function hasUserReviewedProduct(userId: string, productId: string): Promise<boolean> {
