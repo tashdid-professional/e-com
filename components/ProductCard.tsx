@@ -134,33 +134,33 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-3 sm:p-5">
         {product.category && (
-          <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-semibold">
+          <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1 sm:mb-2 font-semibold">
             {product.category}
           </p>
         )}
-        <h3 className="font-bold text-lg mb-2 line-clamp-1 group-hover:text-gray-600 transition-colors">
+        <h3 className="font-bold text-sm sm:text-lg mb-1 sm:mb-2 line-clamp-1 group-hover:text-gray-600 transition-colors">
           {product.name}
         </h3>
         {product.description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2 h-10">
+          <p className="hidden sm:block text-sm text-gray-600 mb-3 line-clamp-2 h-10">
             {product.description}
           </p>
         )}
-        <div className="flex items-center justify-between mt-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-2 sm:mt-4">
           <div>
             {product.discount_price ? (
               <div className="flex flex-col">
-                <span className="text-2xl font-bold text-green-600">
+                <span className="text-lg sm:text-2xl font-bold text-green-600 leading-tight">
                   ${product.discount_price.toFixed(2)}
                 </span>
-                <span className="text-sm text-gray-500 line-through">
+                <span className="text-[10px] sm:text-sm text-gray-500 line-through">
                   ${product.price.toFixed(2)}
                 </span>
               </div>
             ) : (
-              <span className="text-2xl font-bold">${product.price.toFixed(2)}</span>
+              <span className="text-lg sm:text-2xl font-bold">${product.price.toFixed(2)}</span>
             )}
           </div>
           <button
@@ -170,10 +170,12 @@ export default function ProductCard({ product }: { product: Product }) {
               isAdded
                 ? 'bg-green-500 text-white'
                 : 'bg-black text-white hover:bg-gray-800'
-            } px-5 py-2.5 rounded-lg transition-all disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2 font-semibold`}
+            } px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg transition-all disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-1 sm:gap-2 font-semibold text-xs sm:text-base w-full sm:w-auto`}
           >
-            <ShoppingBag className="w-4 h-4" />
-            {product.stock === 0 ? 'Out of Stock' : isAdded ? 'Added!' : 'Add'}
+            <ShoppingBag className="w-3 h-3 sm:w-4 sm:h-4 shrink-0" />
+            <span className="truncate">
+              {product.stock === 0 ? 'Out' : isAdded ? 'Added!' : 'Add'}
+            </span>
           </button>
         </div>
       </div>

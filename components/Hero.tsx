@@ -23,38 +23,29 @@ export default function Hero() {
   };
 
   return (
-    <div style={{ position: 'relative', height: '600px', overflow: 'hidden', backgroundColor: '#111' }}>
+    <div className="relative h-[250px] sm:h-[400px] md:h-[600px] overflow-hidden bg-gray-900">
       {heroSlides.map((slide, index) => (
         <div
           key={index}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            opacity: index === currentSlide ? 1 : 0,
-            transition: 'opacity 1s ease-in-out',
-          }}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          }`}
         >
           <img
             src={slide.image}
             alt={slide.title}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }} />
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', color: 'white', padding: '1rem', zIndex: 10 }}>
-            <div style={{ maxWidth: '48rem' }}>
-              <h1 style={{ fontSize: '4rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 flex items-center justify-center text-center text-white px-4 md:px-8">
+            <div className="max-w-3xl w-full">
+              <h1 className="text-xl sm:text-3xl md:text-6xl font-bold mb-2 sm:mb-4 leading-tight">
                 {slide.title}
               </h1>
-              <p style={{ fontSize: '1.5rem', marginBottom: '2rem', opacity: 0.9 }}>
+              <p className="text-sm sm:text-lg md:text-2xl mb-4 sm:mb-8 opacity-90 line-clamp-1 sm:line-clamp-none">
                 {slide.subtitle}
               </p>
-              <button style={{ backgroundColor: 'white', color: 'black', padding: '0.75rem 2rem', borderRadius: '0.5rem', fontSize: '1.125rem', fontWeight: '600', border: 'none', cursor: 'pointer' }}>
+              <button className="bg-white text-black px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-4 rounded-lg text-xs sm:text-base md:text-lg font-bold hover:bg-gray-100 transition-colors shadow-lg active:scale-95">
                 {slide.cta}
               </button>
             </div>
@@ -62,35 +53,29 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Hidden on small mobile for cleaner UI, shown from sm up */}
       <button
         onClick={prevSlide}
-        style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(255,255,255,0.3)', color: 'white', padding: '0.5rem', borderRadius: '9999px', border: 'none', cursor: 'pointer', zIndex: 20 }}
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 md:p-3 rounded-full z-20 backdrop-blur-sm transition-all hidden sm:block"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5 md:w-8 md:h-8" />
       </button>
       <button
         onClick={nextSlide}
-        style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(255,255,255,0.3)', color: 'white', padding: '0.5rem', borderRadius: '9999px', border: 'none', cursor: 'pointer', zIndex: 20 }}
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 md:p-3 rounded-full z-20 backdrop-blur-sm transition-all hidden sm:block"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5 md:w-8 md:h-8" />
       </button>
 
       {/* Dots */}
-      <div style={{ position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '0.5rem', zIndex: 20 }}>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            style={{
-              width: index === currentSlide ? '2rem' : '0.75rem',
-              height: '0.75rem',
-              borderRadius: '9999px',
-              backgroundColor: index === currentSlide ? 'white' : 'rgba(255,255,255,0.5)',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.3s',
-            }}
+            className={`h-2 md:h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide ? 'w-8 md:w-12 bg-white' : 'w-2 md:w-3 bg-white/50'
+            }`}
           />
         ))}
       </div>

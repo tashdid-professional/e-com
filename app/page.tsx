@@ -62,29 +62,29 @@ export default async function Home() {
       <Hero />
 
       {/* Features Section */}
-      <section className="py-12 bg-white ">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8">
             <div className="text-center">
-              <div className="inline-block p-4 bg-black rounded-full mb-4">
-                <ShoppingBag className="w-8 h-8 text-white" />
+              <div className="inline-block p-2 md:p-4 bg-black rounded-full mb-2 md:mb-4">
+                <ShoppingBag className="w-4 h-4 md:w-8 md:h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Free Shipping</h3>
-              <p className="text-gray-600">On orders over $100</p>
+              <h3 className="text-[10px] sm:text-xl font-bold mb-1 md:mb-2">Free Shipping</h3>
+              <p className="text-[8px] sm:text-base text-gray-600 leading-tight">Over $100</p>
             </div>
             <div className="text-center">
-              <div className="inline-block p-4 bg-black rounded-full mb-4">
-                <Tag className="w-8 h-8 text-white" />
+              <div className="inline-block p-2 md:p-4 bg-black rounded-full mb-2 md:mb-4">
+                <Tag className="w-4 h-4 md:w-8 md:h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Best Prices</h3>
-              <p className="text-gray-600">Competitive pricing guaranteed</p>
+              <h3 className="text-[10px] sm:text-xl font-bold mb-1 md:mb-2">Best Prices</h3>
+              <p className="text-[8px] sm:text-base text-gray-600 leading-tight">Guaranteed</p>
             </div>
             <div className="text-center">
-              <div className="inline-block p-4 bg-black rounded-full mb-4">
-                <TrendingUp className="w-8 h-8 text-white" />
+              <div className="inline-block p-2 md:p-4 bg-black rounded-full mb-2 md:mb-4">
+                <TrendingUp className="w-4 h-4 md:w-8 md:h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Premium Quality</h3>
-              <p className="text-gray-600">Handpicked products</p>
+              <h3 className="text-[10px] sm:text-xl font-bold mb-1 md:mb-2">Premium Quality</h3>
+              <p className="text-[8px] sm:text-base text-gray-600 leading-tight">Handpicked</p>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default async function Home() {
                 Up to 50% off on selected items
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
               {saleProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -124,7 +124,7 @@ export default async function Home() {
                 Handpicked favorites just for you
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
               {featuredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -149,7 +149,7 @@ export default async function Home() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-8">
               {productsWithSecondary.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

@@ -62,13 +62,13 @@ export default function WishlistPage() {
         ) : (
           <>
             <p className="text-gray-600 mb-6">{items.length} items in your wishlist</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6">
               {items.map((item) => (
                 <div
                   key={item.id}
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all"
                 >
-                  <div className="relative aspect-square bg-gray-100">
+                  <div className="relative aspect-square bg-gray-100 uppercase">
                     {item.image_url ? (
                       <img
                         src={item.image_url}
@@ -87,22 +87,22 @@ export default function WishlistPage() {
                       <X className="w-5 h-5 text-red-500" />
                     </button>
                   </div>
-                  <div className="p-4">
+                  <div className="p-3 sm:p-4">
                     <Link 
                       href={`/products/${item.id}`}
-                      className="font-bold text-lg mb-2 hover:text-gray-600 transition-colors block"
+                      className="font-bold text-sm sm:text-lg mb-1 sm:mb-2 hover:text-gray-600 transition-colors block line-clamp-1"
                     >
                       {item.name}
                     </Link>
-                    <p className="text-2xl font-bold mb-4">
+                    <p className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">
                       ${item.price.toFixed(2)}
                     </p>
                     <button
                       onClick={() => handleAddToCart(item)}
-                      className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors font-semibold flex items-center justify-center gap-2"
+                      className="w-full bg-black text-white py-1.5 sm:py-2 rounded-lg hover:bg-gray-800 transition-colors font-semibold flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base"
                     >
-                      <ShoppingBag className="w-4 h-4" />
-                      Add to Cart
+                      <ShoppingBag className="w-3 h-3 sm:w-4 sm:h-4" />
+                      Add
                     </button>
                   </div>
                 </div>
