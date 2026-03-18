@@ -81,7 +81,7 @@ export default function Header() {
 
           {/* Center Navigation - Desktop */}
           <div className="hidden md:flex items-center gap-10">
-            <Link href="/" className="text-sm font-semibold text-gray-600 hover:text-black transition-colors uppercase tracking-widest px-2 py-1 relative group">
+            <Link href="/shop" className="text-sm font-semibold text-gray-600 hover:text-black transition-colors uppercase tracking-widest px-2 py-1 relative group">
               Shop
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full"></span>
             </Link>
@@ -229,6 +229,13 @@ export default function Header() {
             <div>
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Shop Now</p>
               <div className="space-y-4">
+                <Link 
+                  href="/shop" 
+                  className="flex items-center justify-between text-xl font-bold text-gray-800 py-1"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Shop <ChevronRight className="w-5 h-5 text-gray-300" />
+                </Link>
                 <Link 
                   href="/" 
                   className="flex items-center justify-between text-xl font-bold text-gray-800 py-1"
